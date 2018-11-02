@@ -37,24 +37,46 @@ $_postStyle = $krocks_opt['_postStyle'];
 	<main id="main" class="site-main py-5" role="main">
 		<div class="container">
 			<div class="row">
-				<?php if ( $_homepageStyle_recentPost_sidebar == '1' ) : ?>
+				<!-- <?php if ( $_homepageStyle_recentPost_sidebar == '1' ) : ?> -->
 
 					<div class="col-lg-8 col-md-6 col-sm-12 col-12 wn-recent-post-column">
 
-				<?php else : ?>
+				<!-- <?php else : ?> -->
 
-					<div class="col-lg-12 col-md-6 col-sm-12 col-12 wn-recent-post-column">
+					<!-- <div class="col-lg-12 col-md-6 col-sm-12 col-12 wn-recent-post-column"> -->
 				
-				<?php endif; ?>
+				<!-- <?php endif; ?> -->
 
-				<?php if ( $_homepageStyle_recentPost_sidebar == '1') : ?>
-					<div class="col-md-4 col-sm-12 col-12 sidebar">
-						<div class="pl-3">
-	                    	<?php get_sidebar(); ?>
-	                	</div>
-	                </div>
-            	<?php endif; ?>
 
+				<?php
+					if ( have_posts() ) :
+                    while ( have_posts() ) : the_post();
+
+                    $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-square', false, '' );
+                ?>
+
+                <div class="recent-posts">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-12">
+                        	<a href="<?php the_permalink(); ?>" class="post-thumbnail">
+                                <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-content-center flex-wrap col-md-6 col-sm-6 col-12">
+                    <div class="content">
+                    	<h4 class="entry-title pt-1"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+
+                    	<?php the_content(); ?>
+                    </div>
+                </div>
+
+                <?php endwhile; ?>
+                        <?php endif; ?>
+
+                 </div>
 			</div>
 		</div>
 	</main>
