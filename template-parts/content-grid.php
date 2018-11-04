@@ -16,7 +16,7 @@
 		<div class="recent-posts mb-5">
 		    <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'large-height-fixed', false, '' ); ?>
 		        <a href="<?php the_permalink(); ?>" class="post-thumbnail">
-		            <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
+		            <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
 		        </a>
 		    <div class="content">
 		    
@@ -74,7 +74,7 @@
 		<div class="recent-posts mb-5">
 		    <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' ); ?>
 		        <a href="<?php the_permalink(); ?>" class="post-thumbnail">
-		            <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
+		            <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
 		        </a>
 		    <div class="content">
 		    

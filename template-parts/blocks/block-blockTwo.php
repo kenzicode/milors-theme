@@ -21,7 +21,7 @@
         <div class="container py-5">
             <div class="row">
               <div class="col-6 col-md-6 col-sm-12 pb-3">
-                <h1 class="section-title"><?php echo $_blogtitleTwo; ?></h1>
+                <h1 class="section-title"><?php echo esc_html( $_blogtitleTwo ); ?></h1>
               </div>
             </div>
 
@@ -36,7 +36,7 @@
                     <div class="recent-posts">
                         <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-square', false, '' ); ?>
                         <a href="<?php the_permalink(); ?>" class="post-thumbnail">
-                            <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
+                            <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                         </a>
                         <div class="content">
                       

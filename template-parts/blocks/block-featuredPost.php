@@ -86,7 +86,7 @@
                 <div class="col-md-7 featured-img col-sm-12 col-12">
                     <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-height-fixed', false, '' ); ?>
 
-                    <img src="<?php echo $img[0]; ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>">
+                    <img src="<?php echo esc_url($img[0]); ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>">
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                             <div class="col-md-7 col-sm-12 col-12">
                                 <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-height-fixed', false, '' ); ?>
 
-                                <img src="<?php echo $img[0]; ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>">
+                                <img src="<?php echo esc_url($img[0]); ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>">
                             </div>
                         </div>
                     </div>

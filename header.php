@@ -36,11 +36,9 @@
     	<div class="container">
     		<div class="flex-nowrap align-items-center text-center">
     			
-
           		<div class="site-branding">
 		
-					
-						<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
 
             	</div><!-- .site-branding -->
@@ -48,21 +46,66 @@
         	</div>
 
         		
-        		<div class="main-nav align-items-center text-center">
+    		<div class="main-nav align-items-center text-center">
 
-					<?php
-						wp_nav_menu( array(
-							'container' => false,
-							'menu' => __( 'Primary', 'milors' ),
-							'theme_location' => 'primary',
-							'menu_class'     => 'nav sf-menu',
-						) );
-					?>
+				<?php
+					wp_nav_menu( array(
+						'container' => false,
+						'menu' => __( 'Primary', 'milors' ),
+						'theme_location' => 'primary',
+						'menu_class'     => 'nav sf-menu',
+					) );
+				?>
 
-			    </div>
+				<a class="menu-search-button" href="#" title="Search">
+					
+
+					<i class="fas fa-search" data-toggle="modal" data-target="#main-search"></i></button>
+
+					
+
+				</a>
+
+		    </div>
 
 
 		</div>
     </header><!-- Header Closed -->
+
+<!--     <div id="main-search" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+	  	<div class="form-group modal-dialog modal-lg main-search-form">
+	        <div class="input-group input-group-transparent">
+	            <div class="input-group-prepend">
+	                <span class="input-group-text"><i class="far fa-search"></i></span>
+	            </div>
+	            <input type="text" class="form-control" placeholder="Type and hit enter ...">
+	        </div>
+        </div>
+	</div> -->
+
+
+	<!-- Main Search Modal -->
+	<div class="modal fade main-search" id="main-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+
+	        <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url( '/' ); ?>" >
+			    <div class="search-form input-group input-group-transparent">
+			    	<div class="input-group-prepend">
+	                	<span class="input-group-text"><i class="fas fa-search"></i></span>
+	            	</div>
+				    <input type="text" value="<?php the_search_query(); ?>" name="s" id="s" class="input-text" placeholder="Search..." />
+				    <div class="search-message">
+					    <p> Type above and press <em>Enter</em> to search. Press <em>Esc</em> to cancel.</p>
+					</div>
+			    </div>
+		    </form>
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
     
     <main id="content">

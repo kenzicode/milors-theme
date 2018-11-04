@@ -13,8 +13,9 @@ $sharepost = get_post_meta( get_the_ID(), '_milors_share' );
 $author = get_post_meta( get_the_ID(), '_milors_author' );
 $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true );
 
-?>
+$img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' );
 
+?>
 
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post' ); ?>>
@@ -22,7 +23,6 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 	<?php if ($headerStyle == 'regularHeader') : ?>
 
 	    <div class="post-media post-image">
-	    	<?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' ); ?>
 		    <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
 		</div>
 
@@ -35,7 +35,7 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 			if ( is_singular() ) :
 				the_title( '<h1 class="entry-title pt-3">', '</h1>' );
 			else :
-				the_title( '<h2 class="entry-title pt-3"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				the_title( '<h2 class="entry-title pt-3"><a href="' . esc_url( the_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif; ?>
 
 			<div class="entry-meta">
@@ -80,6 +80,7 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 	<?php else : ?>
 	<div class="entry-content">
 	<?php endif; ?>
+
 		<?php
 		the_content( sprintf(
 			wp_kses(

@@ -23,7 +23,9 @@ query_posts('cat=-0&paged='.$paged);
 $_homepageStyle_recentPost = $krocks_opt['_homepageStyle_recentPost'];
 $_homepageStyle_recentPost_sidebar = $krocks_opt['_homepageStyle_recentPost_sidebar'];
 $_homepageStyle_1_column = $krocks_opt['_homepageStyle_1_column'];
+$_homepageStyle_2_column = $krocks_opt['_homepageStyle_2_column'];
 $_postStyle = $krocks_opt['_postStyle'];
+$_categShow = $krocks_opt['_categShow'];
 
 ?>
 
@@ -34,19 +36,14 @@ $_postStyle = $krocks_opt['_postStyle'];
 <?php if ( $_homepageStyle_recentPost == '2' ) : ?>
 
 <div id="primary" class="content-area py-5">
-	<main id="main" class="site-main py-5" role="main">
+	<main id="main" class="site-main" role="main">
 		<div class="container">
 			<div class="row">
-				<!-- <?php if ( $_homepageStyle_recentPost_sidebar == '1' ) : ?> -->
-
+				<?php if ( $_homepageStyle_recentPost_sidebar == '1' ) : ?>
 					<div class="col-lg-8 col-md-6 col-sm-12 col-12 wn-recent-post-column">
-
-				<!-- <?php else : ?> -->
-
-					<!-- <div class="col-lg-12 col-md-6 col-sm-12 col-12 wn-recent-post-column"> -->
-				
-				<!-- <?php endif; ?> -->
-
+				<?php else : ?>
+					<div class="col-lg-12 col-md-6 col-sm-12 col-12 wn-recent-post-column">
+				<?php endif; ?>
 
 				<?php
 					if ( have_posts() ) :
@@ -62,21 +59,70 @@ $_postStyle = $krocks_opt['_postStyle'];
                                 <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                             </a>
                         </div>
-                    </div>
-                </div>
+                    
+		                <div class="d-flex align-content-center flex-wrap col-md-6 col-sm-6 col-12">
+		                    <div class="content">
+		                    	
+		                    	<?php if ($_categShow == '1') : ?>
+                                    <span class="post-category">
+                                        <?php the_category() ?>
+                                    </span>
+                                <?php endif; ?>
 
-                <div class="d-flex align-content-center flex-wrap col-md-6 col-sm-6 col-12">
-                    <div class="content">
-                    	<h4 class="entry-title pt-1"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+		                    	<h4 class="entry-title pt-1"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 
-                    	<?php the_content(); ?>
-                    </div>
-                </div>
+		                    	<?php the_content(); ?>
 
-                <?php endwhile; ?>
-                        <?php endif; ?>
+		                    	<?php if ( $_postStyle !== '1' ) : ?>
+	                            <div class="post-author">
+	                                <div class="post-author-avatar">
+	                                    <?php  
+	                                        $user_id = get_the_author_meta('ID');
+	                                        echo get_avatar( $user_id, 40 ); 
+	                                    ?>
+	                                </div>
+	                                <div class="post-author-name">
+	                                    <?php echo get_the_author(); ?>
+	                                    <br>
+	                                    <time class="entry-date" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
+	                                </div>
+	                            </div>
+	                            
+	                            <?php else : ?>
 
-                 </div>
+	                            <div class="entry-meta">
+                                    <span class="author vcard">
+                                        <span>By</span><?php echo get_the_author(); ?>
+                                    </span>
+                                    <span class="posted-on line">
+                                        <span>On</span><time class="entry-date published" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
+                                    </span>
+                                </div>
+                                            
+                        		<?php endif; ?>
+
+
+		                    </div>
+		                </div>
+            		</div>
+       	 		</div>
+
+                <?php 
+            	endwhile;
+                 endif; ?>
+
+                <?php krckts_pagination(); ?>
+
+                </div><!-- col 8 -->
+
+                <?php if ( $_homepageStyle_recentPost_sidebar == '1') : ?>
+					<div class="col-md-4 col-sm-12 col-12 sidebar">
+						<div class="pl-3">
+	                    	<?php get_sidebar(); ?>
+	                	</div>
+	                </div>
+            	<?php endif; ?>
+
 			</div>
 		</div>
 	</main>

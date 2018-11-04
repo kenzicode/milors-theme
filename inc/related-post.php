@@ -49,7 +49,7 @@ if ( ! function_exists( 'milors_related_post' ) ) {
 
         if (!empty($related_posts)) { ?>
             <div class="related-post">
-                <h2 class="widget-title py-3"><?php _e('Related articles', 'milors'); ?></h2>
+                <h2 class="widget-title py-3"><?php echo esc_html('Related articles', 'milors'); ?></h2>
 
                     
                         <?php
@@ -61,7 +61,7 @@ if ( ! function_exists( 'milors_related_post' ) ) {
                         <div class="col-md-6 col-sm-6 col-12">
                             <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-square', false, '' ); ?>
                             <a href="<?php the_permalink(); ?>" class="post-thumbnail">
-                                <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
+                                <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                             </a>
                         </div>
 
@@ -87,9 +87,7 @@ if ( ! function_exists( 'milors_related_post' ) ) {
                 </div>
 
                         <?php } ?>
-                    
-                    
-                
+            
             </div>
         <?php
         }

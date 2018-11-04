@@ -199,6 +199,46 @@ h1.site-title a:hover {
 
 
 
+/* Main Search */
+a.menu-search-button {
+    margin-left: 30px;
+    color: #888;
+    display: inline-block;
+}
+a:hover.menu-search-button {
+    color: #888;
+}
+.main-search .input-group-transparent .input-group-text {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+}
+.main-search .input-group-transparent .input-group-text i {
+  font-size: 1.25rem;
+  color: #888;
+}
+.main-search .modal-body {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+.main-search .search-form .input-text {
+  width: 26rem;
+  height: 60px;
+  font-size: 1.25rem;
+  color: #888;
+  border: none;
+}
+.main-search .search-message {
+  width: 100%;
+  text-align: center;
+  padding: 12px 20px;
+  border-top: 1px solid #eee;
+}
+.main-search .search-message p {
+  color: #ccc;
+  margin: 0;
+}
 
 
 /* Featured Content */
@@ -511,7 +551,31 @@ a.post-thumbnail:hover {
   transition: all 0.2s ease-out;
 }
 
-
+.sharebuttonSticky {
+  position: absolute;
+  width: 50px;
+  margin: -115px;
+  top: 115px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+.sharebuttonSticky .service i {
+  font-size: 15px;
+  color: #888;
+}
+.sharebuttonSticky .service {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+.sharebuttonSticky .share-text {
+  display: block;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Open Sans';
+  color: #888;
+}
 /*------------------------------------------------------------
 # Block
 -------------------------------------------------------------*/
@@ -817,6 +881,21 @@ h1.section-title {
 .popular-post .post-date {
     color: #eee;
 }
+
+.search-form .input-text {
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+}
+
+.searchform .search-submit {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #888;
+}
+
 
 @-webkit-keyframes dropDown {
   from {

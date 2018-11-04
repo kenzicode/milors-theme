@@ -23,7 +23,7 @@
         <div class="container py-5">
             <div class="row">
               <div class="col-6 col-md-6 col-sm-12 pb-3">
-                <h1 class="section-title"><?php echo $_blogtitleThree; ?></h1>
+                <h1 class="section-title"><?php echo exc_html( $_blogtitleThree ); ?></h1>
               </div>
             </div>
 
@@ -42,7 +42,7 @@
                                         <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-square', false, '' ); ?>
 
                                         <a href="<?php the_permalink(); ?>" class="post-thumbnail">
-                                            <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
+                                            <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="d-flex align-content-center flex-wrap col-md-6 col-sm-6 col-12">
@@ -63,7 +63,7 @@
                                                         <span>By</span><?php echo get_the_author(); ?>
                                                     </span>
                                                     <span class="posted-on line">
-                                                            <span>On</span><time class="entry-date published" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
+                                                        <span>On</span><time class="entry-date published" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
                                                     </span>
                                                 </div>
                                             
@@ -103,7 +103,7 @@
                                     <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-square', false, '' ); ?>
 
                                     <a href="<?php the_permalink(); ?>" class="post-thumbnail">
-                                        <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
+                                        <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-12">

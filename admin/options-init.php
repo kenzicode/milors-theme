@@ -375,10 +375,9 @@
                 'title' => __( 'Select column', 'reduxframework' ),
                 'options' => array (
                     '1' => '1 Column',
-                    '2' => '2 Column',
-                    '3' => '3 Column'
+                    '2' => '2 Column'
                 ),
-                'default' => '2',
+                'default' => '1',
                 'required' => array( '_homepageStyle_recentPost', '=', array( '2' )),
             ),
             array(

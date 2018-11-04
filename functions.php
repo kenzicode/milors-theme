@@ -206,6 +206,12 @@ require get_template_directory() . '/inc/related-post.php';
 require get_template_directory() . '/inc/author-bio.php';
 
 /**
+ * Share Button Function
+ *
+ */
+require get_template_directory() . '/inc/share-button.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -400,3 +406,19 @@ function krckts_pagination( $args = array(), $query = '' ) {
 			return $page_links;
 
 	}
+
+/*-----------------*/
+/* Search Widget */
+/*-----------------*/
+
+function milors_search_form( $form ) {
+    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+    <div class="search-form">
+    <input type="text" value="' . get_search_query() . '" name="s" id="s" class="input-text" />
+    <input type="submit" id="searchsubmit" class="search-submit" value="'. esc_attr__( 'Search' ) .'" />
+    </div>
+    </form>';
+ 
+    return $form;
+}
+add_filter( 'get_search_form', 'milors_search_form' );
