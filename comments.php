@@ -71,15 +71,12 @@ if ( post_password_required() ) {
 	endif; // Check for have_comments().
 
 	$comments_args = array(
-        // change the title of send button 
+        // change the title of send button
         'label_submit'=>'SUBMIT COMMENT',
         // change the title of the reply section
         'title_reply'=>'Add Comment',
         'title_reply_before' => '<h4 id="reply-title" class="comment-reply-title">',
         'title_reply_after' => '</h4>',
-
-
-
         'class_submit' => 'btn btn-primary',
 
         'fields' => apply_filters('comment_form_defaults_fields', array(
