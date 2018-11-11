@@ -71,6 +71,17 @@ $_categShow = $krocks_opt['_categShow'];
 
 		                    	<h4 class="entry-title pt-1"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 
+		                    	<?php if ( $_postStyle == '1' ) : ?>
+		                    	<div class="entry-meta">
+                                    <span class="author vcard">
+                                        <span>By</span><?php echo get_the_author(); ?>
+                                    </span>
+                                    <span class="posted-on line">
+                                        <span>On</span><time class="entry-date published" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
+                                    </span>
+                                </div>
+                            	<?php endif; ?>
+
 		                    	<?php the_content(); ?>
 
 		                    	<?php if ( $_postStyle !== '1' ) : ?>
@@ -87,20 +98,7 @@ $_categShow = $krocks_opt['_categShow'];
 	                                    <time class="entry-date" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
 	                                </div>
 	                            </div>
-	                            
-	                            <?php else : ?>
-
-	                            <div class="entry-meta">
-                                    <span class="author vcard">
-                                        <span>By</span><?php echo get_the_author(); ?>
-                                    </span>
-                                    <span class="posted-on line">
-                                        <span>On</span><time class="entry-date published" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
-                                    </span>
-                                </div>
-                                            
                         		<?php endif; ?>
-
 
 		                    </div>
 		                </div>
