@@ -12,10 +12,10 @@ if ( ! function_exists( 'milors_author_bio' ) ) {
 													
 		<div class="single_author">					
 			<div class="author-main row">
-				<div class="author-img col-3 col-md-3 col-lg-3 col-sm-12">
+				<div class="author-img col-12 col-sm-12">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentyeleven_author_bio_avatar_size',150 ) ); ?>
 				</div>
-				<div class="author-desc col-9 col-md-9 col-lg-9 col-sm-12">
+				<div class="author-desc col-12 col-sm-12">
 					<h3><?php printf( __( '%s', 'milors' ), get_the_author() ); ?></h3>	
 					<p><?php the_author_meta( 'description' ); ?></p>
 					<ul class="author_link">
@@ -35,6 +35,18 @@ if ( ! function_exists( 'milors_author_bio' ) ) {
 							$linkedin_profile = get_the_author_meta( 'linkedin_profile' );
 							if ( $linkedin_profile && $linkedin_profile != '' ) {
 							   echo '<li class="linkedin"><a href="' . esc_url($linkedin_profile) . '"><i class="fab fa-linkedin-in"></i></a></li>';
+							}
+							$github_profile = get_the_author_meta( 'github_profile' );
+							if ( $github_profile && $github_profile != '' ) {
+							   echo '<li class="github"><a href="' . esc_url($github_profile) . '"><i class="fab fa-github"></i></a></li>';
+							}
+							$behance_profile = get_the_author_meta( 'behance_profile' );
+							if ( $behance_profile && $behance_profile != '' ) {
+							   echo '<li class="behance"><a href="' . esc_url($behance_profile) . '"><i class="fab fa-behance"></i></a></li>';
+							}
+							$instagram_profile = get_the_author_meta( 'instagram_profile' );
+							if ( $instagram_profile && $instagram_profile != '' ) {
+							   echo '<li class="instagram"><a href="' . esc_url($instagram_profile) . '"><i class="fab fa-instagram"></i></a></li>';
 							}
 						?>
 					</ul>

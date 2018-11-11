@@ -235,10 +235,9 @@ if ( function_exists('add_theme_support')) {
 	add_image_size('medium-square', 550, 550, true, array( 'center', 'center' ) );
 	add_image_size('large-square', 900, 900 );
 	add_image_size('medium-width-fixed', 450, 9999);
-	add_image_size('large-width-fixed', 900, 9999);
 	add_image_size('small-height-fixed', 350, 235, true, array( 'center', 'center' ) );
 	add_image_size('medium-height-fixed', 700, 650, true, array( 'center', 'center' ) );
-	add_image_size('large-height-fixed', 1275, 700, true, array( 'center', 'center' ) );
+	add_image_size('large-height-fixed', 1700, 700, true, array( 'center', 'center' ) );
 	add_image_size('fullsize', 1024, 9999);
 }
 

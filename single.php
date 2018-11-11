@@ -16,20 +16,8 @@ $sidebar = get_post_meta( get_the_ID(), '_milors_sidebar', true );
 $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true );
 
 ?>
-
-	<?php if ( $sidebar == 'no-sidebar' ) : ?>
-		<div id="primary" class="no-sidebar container py-5">
-	<?php else : ?>
-		<div id="primary" class="container py-5">
-	<?php endif; ?>
-
-		<?php if ($headerStyle == 'bigimgHeader') : ?>
-			<div class="post-media post-image mb-5">
-		    	<?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'large-height-fixed', false, '' ); ?>
-			    <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid img-fluid mx-auto d-block">
-			</div>
-
-		<?php elseif ($headerStyle == 'bigimgwithtitleHeader') : ?>
+	
+	<?php if ($headerStyle == 'bigimgwithtitleHeader') : ?>
 
 			<div class="article-style-four mb-5">
 
@@ -37,6 +25,8 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 
 				    <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'large-height-fixed', false, '' ); ?>
 					
+					<?php if ( $img != '' ) : ?>
+						
 					<img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid mx-auto d-block">
 
 					<div class="content">
@@ -57,7 +47,23 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 				        </div>
 
 	                </div>
+
+	                <?php endif; ?>
 				</div>
+			</div>
+
+	<?php endif; ?>
+	
+	<?php if ( $sidebar == 'no-sidebar' ) : ?>
+		<div id="primary" class="no-sidebar container py-5">
+	<?php else : ?>
+		<div id="primary" class="container py-5">
+	<?php endif; ?>
+
+		<?php if ($headerStyle == 'bigimgHeader') : ?>
+			<div class="post-media post-image mb-5">
+		    	<?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'large-height-fixed', false, '' ); ?>
+			    <img src="<?php echo esc_url($img[0]); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid img-fluid mx-auto d-block">
 			</div>
 
 		<?php elseif ($headerStyle == 'leftHeader') : ?>
@@ -110,8 +116,6 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 
 					get_template_part( 'template-parts/content', get_post_type() );
 
-					milors_share_button();
-
 					milors_author_bio();
 
 					// calling related post function 
@@ -148,8 +152,6 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 
 					get_template_part( 'template-parts/content', get_post_type() );
 
-					milors_share_button();
-
 					milors_author_bio();
 					
 					milors_related_post(array(
@@ -180,8 +182,6 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 
 				<div class="no-sidebar single-post">
 					<?php
-
-						milors_share_button();
 
 						milors_author_bio();
 

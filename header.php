@@ -31,11 +31,15 @@
     <header class="blog-header pt-5">
     	<div class="container">
     		<div class="flex-nowrap align-items-center text-center">
-          <div class="site-branding">
-						<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					</div><!-- .site-branding -->
-				</div>
-    		<div class="main-nav align-items-center text-center">
+          		<div class="site-branding">
+					<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				</div><!-- .site-branding -->
+			</div>
+    		<nav class="main-nav navbar-expand-lg navbar-light align-items-center text-center">
+	    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div id="navbarNav" class="container collapse navbar-collapse navbarNavDropdown">
 					<?php
 						wp_nav_menu( array(
 							'container' => false,
@@ -44,11 +48,16 @@
 							'menu_class'     => 'nav sf-menu',
 						) );
 					?><!-- site main nav -->
+				
 					<a class="menu-search-button" href="#" title="Search">
-						<i class="fas fa-search" data-toggle="modal" data-target="#main-search"></i></button>
+						<i class="fas fa-search" data-toggle="modal" data-target="#main-search"></i>
 					</a>
-		    </div>
-			</div>
+				</div>
+		    </nav>
+
+
+
+		</div>
     </header><!-- Header Closed -->
 
 <!--     <div id="main-search" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

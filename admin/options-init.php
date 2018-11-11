@@ -239,6 +239,26 @@
                 ),
             ),
 
+            array(
+                'id'          => '_articleFont',
+                'type'        => 'typography', 
+                'title'       => __('Article Typography', 'redux-framework'),
+                'google'      => true,
+                'line-height' => true,
+                'font-size' => true,
+                'text-align' => false,
+                'font-backup' => false,
+                'output'      => array('.entry-content p'),
+                'units'       =>'px',
+                'subtitle'    => __('Setting single article typography.', 'redux-framework'),
+                'default'     => array(
+                    'color'       => '#555', 
+                    'font-style'  => '400', 
+                    'font-family' => 'Merriweather', 
+                    'google'      => true,
+                ),
+            ),
+
 
             // array(
             //     'id'       => '_bodyfontFamily',

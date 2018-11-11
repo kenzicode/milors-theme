@@ -33,7 +33,7 @@ $_categShow = $krocks_opt['_categShow'];
 	get_template_part( 'template-parts/blocks/block', 'featuredPost' );
 ?>
 
-<?php if ( $_homepageStyle_recentPost == '2' ) : ?>
+<?php if ( $_homepageStyle_recentPost == '2' ) : //Style 2 ?>
 
 <div id="primary" class="content-area py-5">
 	<main id="main" class="site-main" role="main">
@@ -161,6 +161,11 @@ $_categShow = $krocks_opt['_categShow'];
                             <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                         </a>
                        	<div class="content">
+                       		<?php if ($_categShow == '1') : ?>
+                                <span class="post-category">
+                                    <?php the_category() ?>
+                                </span>
+                            <?php endif; ?>
                        		<h4 class="entry-title pt-1"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							
 							<?php if ( $_postStyle == '1' ) : ?>                       		

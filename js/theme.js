@@ -20,6 +20,9 @@
 mainNav = $( '.main-nav' );
 footerWidget = $('.footer-widget');
 
+$( '#navbarNav' ).click(function() {
+	$('ul').removeClass();
+});
 
  	(function() {
 
@@ -40,7 +43,6 @@ footerWidget = $('.footer-widget');
  			})
  			.on( 'mouseleave', function() {
  				mainNav.find( '.sub-menu' ).removeClass( 'show' ).addClass( 'fadeOut' );	
- 			
 
  			
  		});

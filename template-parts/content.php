@@ -99,11 +99,16 @@ $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fulls
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'milors-theme' ),
 			'after'  => '</div>',
 		) );
+
 		?>
+
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer my-4 pb-2">
-		<?php milors_theme_entry_footer(); ?>
+		<?php 
+			milors_theme_entry_footer(); 
+			milors_share_button();
+		?>
 	</footer><!-- .entry-footer -->
 
 	<nav class="navigation post-navigation pb-5">
