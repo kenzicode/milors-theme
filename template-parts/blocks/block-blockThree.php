@@ -23,7 +23,7 @@
         <div class="container py-5">
             <div class="row">
               <div class="col-6 col-md-6 col-sm-12 pb-3">
-                <h1 class="section-title"><?php echo exc_html( $_blogtitleThree ); ?></h1>
+                <h1 class="section-title"><?php echo esc_html( $_blogtitleThree ); ?></h1>
               </div>
             </div>
 

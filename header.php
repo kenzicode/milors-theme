@@ -18,8 +18,8 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-	<script src="https://unpkg.com/popper.js@1.14.4/dist/umd/popper.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/minifill/0.0.4/minifill.min.js"></script>
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
+ -->	<script type="text/javascript" src="https://cdn.jsdelivr.net/minifill/0.0.4/minifill.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
 
 	<link href="https://fonts.googleapis.com/css?family=Dancing+Script:700|Dosis:400,500,600,700,800|Lato:400,700,900|Lora:400,700|Martel:400,700|Merriweather:400,700,900|Nanum+Myeongjo|Noto+Sans+KR:400,500,700|Open+Sans:400,600,700,800|PT+Sans+Narrow:400,700|PT+Serif|Pacifico|Raleway:400,500,700,800" rel="stylesheet">
@@ -28,18 +28,42 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="blog-header pt-5">
+    <header class="blog-header pt-sm-3 pt-md-5 pt-lg-5 pt-xl-5">
     	<div class="container">
-    		<div class="flex-nowrap align-items-center text-center">
-          		<div class="site-branding">
-					<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				</div><!-- .site-branding -->
+    		<div class="row justify-content-sm-center flex-nowrap align-items-center text-center">
+	    		
+	    			<nav class="col-sm-2 navbar-expand-lg navbar-light mobileNav d-xl-none d-lg-none d-md-none">
+		    			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					</nav>
+	          		<div class="site-branding col-sm-auto">
+						<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					</div><!-- .site-branding -->
+
+					<a class="menu-search-button col-sm-2 d-xl-none d-lg-none d-md-none" href="#" title="Search">
+						<i class="fas fa-search" data-toggle="modal" data-target="#main-search"></i>
+					</a>
+				
 			</div>
-    		<nav class="main-nav navbar-expand-lg navbar-light align-items-center text-center">
-	    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div id="navbarNav" class="container collapse navbar-collapse navbarNavDropdown">
+			<nav class="navbar navbar-expand-lg navbar-light mobileNav d-xl-none d-lg-none d-md-none">
+		    	
+				
+				<div id="navbarNav" class="collapse navbar-collapse navbarNavDropdown">
+					<?php
+						wp_nav_menu( array(
+							'container' => false,
+							'menu' => __( 'Primary', 'milors' ),
+							'theme_location' => 'primary',
+							'menu_class'     => 'navbar-nav mr-auto',
+
+						) );
+					?><!-- site main nav -->
+				</div>
+			</nav>
+
+    		<nav class="main-nav navbar-expand-lg navbar-expand-md navbar-light align-items-center text-center">
+				<div class="container collapse navbar-collapse">
 					<?php
 						wp_nav_menu( array(
 							'container' => false,
@@ -55,7 +79,7 @@
 				</div>
 		    </nav>
 
-
+		    <!-- Menu Mobile -->
 
 		</div>
     </header><!-- Header Closed -->

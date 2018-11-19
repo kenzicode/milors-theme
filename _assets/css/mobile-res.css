@@ -1,0 +1,75 @@
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+	h1.site-title {
+		font-size: 55px;
+	}
+	.featured-post-static .title-big {
+	    font-size: 35px;
+	}
+	.navbar-expand-lg .navbar-collapse {
+	  margin-bottom: 1.5rem;
+	}
+	.entry-header h1 {
+		font-size: 24px;
+	}
+	.entry-content p {
+		font-size: 14px !important;
+	}
+	.widgets {
+		margin-bottom: 60px;
+	}
+	.widget-area {
+	    padding-top: 50px;
+	    margin-top: 20px;
+	    border-top: 1px solid #ddd;
+	}
+	.widget-title {
+    	font-size: 1.2rem;
+    }
+    .no-sidebar .single-post, .no-sidebar .page {
+	    max-width: 100%;
+	}
+
+	.article-style-four .content {
+    position: relative;
+    bottom: 0;
+    padding: 0 20px 20px;
+    width: 100%;
+    text-align: center;
+    color: #222;
+    height: auto;
+    background: none;
+}
+.article-style-four .content .post-category {
+    margin-bottom: 20px;
+    display: block;
+    margin-top: 20px;
+}
+
+.article-style-four .entry-title {
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: block;
+    padding: 0;
+        padding-top: 0px;
+    padding-top: 0px;
+    line-height: 1.3;
+}
+.article-style-four .entry-meta {
+    color: #555;
+    font-size: 14px;
+}
+
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { ... }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { ... }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }

@@ -15,42 +15,44 @@ get_header();
 
 		<div class="row">
 
-		<div class="col-8 col-md-8 col-sm-12">
+			<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 pr-md-5">
 
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-			<header class="featuredpage-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				?>
-			</header><!-- .page-header -->
+				<header class="featuredpage-header">
+					<?php
+					the_archive_title( '<h1 class="page-title">', '</h1>' );
+					?>
+				</header><!-- .page-header -->
 
-			<div class="row">
-				<?php
-				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
-	
-					get_template_part( 'template-parts/content', 'grid' );
+				<div class="row">
+					<?php
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
+		
+						get_template_part( 'template-parts/content', 'grid' );
 
-				endwhile; ?>
+					endwhile; ?>
+				</div>
+				
+					<?php the_posts_navigation();
+
+			else :
+
+				get_template_part( 'template-parts/content', 'none' );
+
+			endif;
+			?>
+
 			</div>
-			
-				<?php the_posts_navigation();
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+				<?php get_sidebar(); ?>
+			</div>
 
 		</div>
 
-		<div class="col-4 col-md-4 col-sm-12">
-				<?php get_sidebar(); ?>
-			</div>
-	    </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

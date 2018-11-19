@@ -93,14 +93,14 @@ class Theme_Widget_Recent_Posts extends WP_Widget {
 				?>
 				<div class="widget-posts">
 					<div class="row">
-						<div class="col-md-8 d-flex align-content-center flex-wrap">
+						<div class="col-8 col-md-8 col-lg-8 col-xl-8 d-flex align-content-center flex-wrap">
 							<?php if ( $show_date ) : ?>
 								<span class="post-date text-muted"><?php echo get_the_date( '', $recent_post->ID ); ?></span>
 							<?php endif; ?>
 							<a href="<?php the_permalink( $recent_post->ID ); ?>"><?php echo $title ; ?>
 							</a>
 						</div>
-						<div class="col-md-4">
+						<div class="col-4 col-md-4 col-lg-4 col-xl-4">
 							<img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
 						</div>
 					</div>

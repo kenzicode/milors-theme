@@ -55,9 +55,9 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 	<?php endif; ?>
 	
 	<?php if ( $sidebar == 'no-sidebar' ) : ?>
-		<div id="primary" class="no-sidebar container py-5">
+		<div id="primary" class="no-sidebar container py-md-5 py-lg-5">
 	<?php else : ?>
-		<div id="primary" class="container py-5">
+		<div id="primary" class="container py-md-5 py-lg-5">
 	<?php endif; ?>
 
 		<?php if ($headerStyle == 'bigimgHeader') : ?>
@@ -70,7 +70,7 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 
 			<div class="article-style-three pt-2 pb-5 mb-5">
 	            <div class="wrap no-gutters row">
-	                <div class="d-flex align-content-center flex-wrap col-md-5 col-sm-12 col-12 pr-5">
+	                <div class="d-flex align-content-center flex-wrap col-md-5 col-sm-12 col-12 py-5 py-md-0 py-lg-0 py-xl-0 pr-5">
 	                    <h1 class="entry-title"><?php the_title(); ?></h1>
 	                    <span class="tagging line"><?php the_category(); ?></span>
 	                   
@@ -108,7 +108,7 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 
 			<?php if ( $sidebar === 'rightSidebar' ) { ?> 
 
-			<div class="col-8 col-md-8 col-sm-12 pr-5">
+			<div class="col-md-8 col-lg-8 col-xl-8 col-sm-12 pr-5">
 
 				<?php
 				while ( have_posts() ) :
@@ -134,17 +134,17 @@ $headerStyle = get_post_meta( get_the_ID(), '_milors_single_post_header', true )
 
 			</div>
 
-			<div class="col-4 col-md-4 col-sm-12 widgets-no-padding">
+			<div class="col-md-4 col-lg-4 col-xl-4 col-sm-12 widgets-no-padding">
 				<?php get_sidebar(); ?>
 			</div>
 
 			<?php } elseif ( $sidebar === 'leftSidebar' ) { ?>
 
-			<div class="col-4 col-md-4 col-sm-12">
+			<div class="col-md-4 col-lg-4 col-xl-4 col-sm-12">
 				<?php get_sidebar(); ?>
 			</div>
 
-			<div class="col-8 col-md-8 col-sm-12 pl-5">
+			<div class="col-md-8 col-lg-8 col-xl-8 col-sm-12 pl-5">
 
 				<?php
 				while ( have_posts() ) :

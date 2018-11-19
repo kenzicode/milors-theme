@@ -18,35 +18,10 @@
     $_post = $krocks_opt['_featuredPost'];
 ?>
 
-<!-- <div class="home-feature py-5">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col">
-                <a href="#" class="xx">
-                    <img src="https://www.mendo.nl/wp-content/uploads/2016/12/Mendo-2015-10-1-1200x0-c-default.jpg" class="img-fluid" alt="Photo of Neptune.">
-                    <h4 class="entry-title py-2 h5 text-center">New Book by Millors</h4>        
-                </a>
-            </div>
-            <div class="col">
-                <a href="#" class="xx">
-                    <img src="https://www.mendo.nl/wp-content/uploads/2016/12/Mendo-2015-10-1-1200x0-c-default.jpg" class="img-fluid" alt="Photo of Neptune.">
-                    <h4 class="entry-title py-2 h5 text-center">New Book by Millors</h4>
-                </a>
-            </div>
-            <div class="col">
-                <a href="#" class="xx">
-                    <img src="https://www.mendo.nl/wp-content/uploads/2016/12/Mendo-2015-10-1-1200x0-c-default.jpg" class="img-fluid" alt="Photo of Neptune.">
-                    <h4 class="entry-title py-2 h5 text-center">New Book by Millors</h4>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>    
- -->
     <?php if ($_featuredPost_type == 'static') : ?>
     
     <!-- Featured post -->
-    <div class="featured-post-static pt-5">
+    <div class="featured-post-static pt-lg-5 pt-xl-5">
 
         <?php if ( have_posts() ) : ?>
         <?php 
@@ -58,9 +33,9 @@
             while ( $query->have_posts() ) : $query->the_post(); 
         ?>
 
-        <div class="container pt-5">
+        <div class="container pt-md-5 pt-lg-5 pt-xl-5">
             <div class="wrap no-gutters row">
-                <div class="content-text d-flex align-content-center flex-wrap col-md-5 col-sm-12 col-12">
+                <div class="content-text d-flex align-content-center flex-wrap col-md-5 col-sm-12 col-12 py-5 py-md-0">
                     <h1 class="title-big"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                     <span class="tagging line"><?php the_category(); ?></span>
                 

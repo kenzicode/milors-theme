@@ -12,7 +12,7 @@
 
 <?php if ($wp_query->current_post == 0 && !is_paged() ) : ?>
 
-	<div class="col-12">
+	<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 		<div class="recent-posts mb-5">
 		    <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'large-height-fixed', false, '' ); ?>
 		        <a href="<?php the_permalink(); ?>" class="post-thumbnail">
@@ -70,7 +70,7 @@
 
 <?php else : ?>
 	
-	<div class="col-6">
+	<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 		<div class="recent-posts mb-5">
 		    <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' ); ?>
 		        <a href="<?php the_permalink(); ?>" class="post-thumbnail">

@@ -54,13 +54,13 @@ $_categShow = $krocks_opt['_categShow'];
 
                 <div class="recent-posts">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6 col-12">
+                        <div class="col-md-6 col-sm-12 col-12">
                         	<a href="<?php the_permalink(); ?>" class="post-thumbnail">
                                 <img src="<?php echo $img[0]; ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                             </a>
                         </div>
                     
-		                <div class="d-flex align-content-center flex-wrap col-md-6 col-sm-6 col-12">
+		                <div class="d-flex align-content-center flex-wrap col-md-6 col-sm-12 col-12">
 		                    <div class="content">
 		                    	
 		                    	<?php if ($_categShow == '1') : ?>
