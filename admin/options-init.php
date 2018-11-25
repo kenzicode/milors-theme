@@ -66,6 +66,8 @@
         'show_import_export' => TRUE,
         'transient_time' => '3600',
         'network_sites' => TRUE,
+        'dev_mode' => TRUE,
+        'disable_tracking' => TRUE,
     );
 
     // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
@@ -245,10 +247,11 @@
                 'title'       => __('Article Typography', 'redux-framework'),
                 'google'      => true,
                 'line-height' => true,
-                'font-size' => true,
-                'text-align' => false,
+                'font-size'   => true,
+                'font-style'  => false,
+                'text-align'  => false,
                 'font-backup' => false,
-                'output'      => array('.entry-content p'),
+                'output'      => array('.entry-content p, .entry-content dl, .entry-content ol, .entry-content ul'),
                 'units'       =>'px',
                 'subtitle'    => __('Setting single article typography.', 'redux-framework'),
                 'default'     => array(
