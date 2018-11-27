@@ -13,7 +13,6 @@
 	
 <?php 
     global $krocks_opt;
-    $_totop = $krocks_opt['_pagetoTop'];
     $_copy = $krocks_opt['_footerCopy'];
     $_column = $krocks_opt['_footerColumn'];
     $_footer_1_col_sidebar = $krocks_opt['_footer_1_Column_setting'];

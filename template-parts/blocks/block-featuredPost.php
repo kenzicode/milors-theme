@@ -12,9 +12,12 @@
 <?php 
     global $krocks_opt;
     $_featuredPost_type = $krocks_opt['_featuredPost_type'];
-    $_slide_q = $krocks_opt['_slides_qty'];
-    $_slide_cat = $krocks_opt['_slide_categ'];
-    $_slide_author = $krocks_opt['_slide_author'];
+
+    if ($_featuredPost_type == 'slides') :
+        $_slide_q = $krocks_opt['_slides_qty'];
+        $_slide_cat = $krocks_opt['_slide_categ'];
+        $_slide_author = $krocks_opt['_slide_author'];
+    endif;
     $_post = $krocks_opt['_featuredPost'];
 ?>
 

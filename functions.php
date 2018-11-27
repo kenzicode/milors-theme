@@ -19,7 +19,7 @@ if ( ! function_exists( 'milors_theme_setup' ) ) :
 
 		// Required theme options
 		require get_template_directory() . '/admin/admin-init.php';
-		require get_template_directory() . '/cmb2/init.php';
+		require get_template_directory() . '/CMB2/init.php';
 		require get_template_directory() . '/CMB-functions.php';
 		
 		/*

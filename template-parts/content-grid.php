@@ -6,9 +6,14 @@
  *
  * @package Milors
  */
-
-
 ?>
+
+<?php 
+    global $krocks_opt;
+    $_categShow = $krocks_opt['_categShow'];
+    $_postStyle = $krocks_opt['_postStyle'];
+?>
+
 
 <?php if ($wp_query->current_post == 0 && !is_paged() ) : ?>
 

@@ -1949,16 +1949,7 @@
                 ),
                 'default'  => '2'
             ),
-            array(
-                'id'       => 'opt-patterns',
-                'type'     => 'image_select',
-                'tiles'    => true,
-                'title'    => __( 'Images Option (with tiles => true)', 'redux-framework-demo' ),
-                'subtitle' => __( 'Select a background pattern.', 'redux-framework-demo' ),
-                'default'  => 0,
-                'options'  => $sample_patterns
-                ,
-            ),
+
             array(
                 'id'       => 'opt-image-select',
                 'type'     => 'image_select',
@@ -2003,40 +1994,7 @@
         )
     ) );
     
-    Redux::setSection( $opt_name, array(
-        'title'      => __( 'Select Image', 'redux-framework-demo' ),
-        'id'         => 'select-select_image',
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="//docs.reduxframework.com/core/fields/select-image/" target="_blank">docs.reduxframework.com/core/fields/select-image/</a>',
-        'subsection' => true,
-        'fields'     => array(
-            array(
-                'id'      => 'opt-select_image-field',
-                'type'    => 'select_image',
-                'title'   => __( 'Select Image', 'redux-framework-demo' ),
-                'subtitle' => __( 'A preview of the selected image will appear underneath the select box.', 'redux-framework-demo' ),
-                'options' => array(
-                    array(
-                        'alt' => 'Preset 1',
-                        'img' => ReduxFramework::$_url . '../sample/presets/preset1.png',
-                    ),
-                    array(
-                        'alt' => 'Preset 2',
-                        'img' => ReduxFramework::$_url . '../sample/presets/preset2.png',
-                    ),
-                ),
-                'default' => ReduxFramework::$_url . '../sample/presets/preset2.png',
-            ),
-            
-            array(
-                'id'       => 'opt-select-image',
-                'type'     => 'select_image',
-                'title'    => __( 'Select Image', 'redux-framework-demo' ),
-                'subtitle' => __( 'A preview of the selected image will appear underneath the select box.', 'redux-framework-demo' ),
-                'options'  => $sample_patterns,
-                'default'  => ReduxFramework::$_url . '../sample/patterns/triangular.png',
-            ),
-        )
-    ) );
+
 
     // -> START Slider / Spinner
     Redux::setSection( $opt_name, array(
@@ -2277,31 +2235,6 @@
 
     ) );
 
-    Redux::setSection( $opt_name, array(
-        'title'      => __( 'Raw', 'redux-framework-demo' ),
-        'id'         => 'additional-raw',
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="//docs.reduxframework.com/core/fields/raw/" target="_blank">docs.reduxframework.com/core/fields/raw/</a>',
-        'subsection' => true,
-        'fields'     => array(
-            array(
-                'id'       => 'opt-raw_info_4',
-                'type'     => 'raw',
-                'title'    => __( 'Standard Raw Field', 'redux-framework-demo' ),
-                'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'     => __( 'Description', 'redux-framework-demo' ),
-                'content'  => $sampleHTML,
-            ),
-            array(
-                'id'         => 'opt-raw_info_5',
-                'type'       => 'raw',
-                'full_width' => false,
-                'title'      => __( 'Raw Field <code>full_width</code> False', 'redux-framework-demo' ),
-                'subtitle'   => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'       => __( 'Description', 'redux-framework-demo' ),
-                'content'    => $sampleHTML,
-            ),
-        )
-    ) );
 
     Redux::setSection( $opt_name, array(
         'title' => __( 'Advanced Features', 'redux-framework-demo' ),
