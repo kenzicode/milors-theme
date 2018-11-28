@@ -82,7 +82,7 @@ $_categShow = $krocks_opt['_categShow'];
                                 </div>
                             	<?php endif; ?>
 
-		                    	<?php the_content(); ?>
+		                    	<?php wpe_excerpt('wpe_excerptlength_index_sc', ''); ?>
 
 		                    	<?php if ( $_postStyle !== '1' ) : ?>
 	                            <div class="post-author">
@@ -179,7 +179,7 @@ $_categShow = $krocks_opt['_categShow'];
 	                            </div>
                             <?php endif; ?>
 
-                            <?php the_content(); ?>
+                            <?php wpe_excerpt('wpe_excerptlength_index_sc', ''); ?>
 
                             <?php if ( $_postStyle !== '1' ) : ?>
 	                            <div class="post-author">
