@@ -11,16 +11,14 @@
 
 <?php 
     global $krocks_opt;
-
-    if ($krocks_opt['_featuredPost_type'] == 'slides') :
-        $_slide_q = $krocks_opt['_slides_qty'];
-        $_slide_cat = $krocks_opt['_slide_categ'];
-        $_slide_author = $krocks_opt['_slide_author'];
-    endif;
+    $_featuredPost_type = $krocks_opt['_featuredPost_type'];
+    $_slide_q = $krocks_opt['_slides_qty'];
+    $_slide_cat = $krocks_opt['_slide_categ'];
+    $_slide_author = $krocks_opt['_slide_author'];
     $_post = $krocks_opt['_featuredPost'];
 ?>
 
-    <?php if ($krocks_opt['_featuredPost_type'] == 'static') : ?>
+    <?php if ($_featuredPost_type == 'static') : ?>
     
     <!-- Featured post -->
     <div class="featured-post-static pt-lg-5 pt-xl-5">
@@ -72,6 +70,9 @@
     </div>
 
     <?php else : ?>
+
+
+
 
     <!-- Slides Posts -->
     <div class="featured-post-slider slider">
