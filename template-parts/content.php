@@ -74,7 +74,6 @@ $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fulls
 
 	<?php endif; ?>
 
-	
 	<?php if ($headerStyle == 'leftHeader') : ?>
 	<div class="entry-content">
 	<?php else : ?>
@@ -82,7 +81,7 @@ $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fulls
 	<?php endif; ?>
 
 		<?php
-		the_content( sprintf(
+			the_content( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
 				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'milors-theme' ),
@@ -113,11 +112,8 @@ $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fulls
 
 	<nav class="navigation post-navigation pb-5">
 		<div class="nav-links row justify-content-between">
-
 			<?php previous_post_link( '<div class="prev-post col-12 col-md-4 col-lg-4 col-xl-4 py-3">%link</div>', '<i class="fas fa-chevron-left"></i><span>%title</span>' ); ?>
-
 			<?php next_post_link( '<div class="next-post col-12 col-md-4 col-lg-4 col-xl-4 py-3">%link</div>', '<span>%title</span><i class="fas fa-chevron-right"></i>' ); ?>
-
 		</div>
 	</nav>
 

@@ -12,10 +12,10 @@ get_header();
 
 	<div id="primary" class="container py-5">
 		<main id="main" class="site-main">
-
+		<div class="container">
 		<div class="row">
 
-			<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 pr-md-5">
+			<div class="col-lg-8 col-md-6 col-sm-12 col-12 wn-recent-post-column">
 
 			<?php if ( have_posts() ) : ?>
 
@@ -25,18 +25,18 @@ get_header();
 					?>
 				</header><!-- .page-header -->
 
-				<div class="row">
+
 					<?php
 					/* Start the Loop */
 					while ( have_posts() ) :
 						the_post();
 		
-						get_template_part( 'template-parts/content', 'grid' );
+						get_template_part( 'template-parts/content', 'archive' );
 
 					endwhile; ?>
-				</div>
-				
-					<?php the_posts_navigation();
+
+
+					<?php krckts_pagination();
 
 			else :
 
@@ -52,7 +52,7 @@ get_header();
 			</div>
 
 		</div>
-
+	</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

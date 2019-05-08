@@ -24,6 +24,12 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Dancing+Script:700|Dosis:400,500,600,700,800|Lato:400,700,900|Lora:400,700|Martel:400,700|Merriweather:400,700,900|Nanum+Myeongjo|Noto+Sans+KR:400,500,700|Open+Sans:400,600,700,800|PT+Sans+Narrow:400,700|PT+Serif|Pacifico|Raleway:400,500,700,800" rel="stylesheet">
 
+	<?php 
+		global $krocks_opt;
+		$_logo = $krocks_opt['_logo']['url'];
+		$_logosize = $krocks_opt['_logosize'];
+	?>
+
 	<?php wp_head(); ?>
 </head>
 
@@ -32,23 +38,33 @@
     	<div class="container">
     		<div class="row justify-content-sm-center flex-nowrap align-items-center text-center">
 	    		
-	    			<nav class="col-sm-2 navbar-expand-lg navbar-light mobileNav d-xl-none d-lg-none d-md-none">
-		    			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-					</nav>
-	          		<div class="site-branding col-sm-auto">
-						<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					</div><!-- .site-branding -->
+    			<nav class="col-sm-2 navbar-expand-lg navbar-light mobileNav d-xl-none d-lg-none d-md-none">
+	    			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</nav>
 
-					<a class="menu-search-button col-sm-2 d-xl-none d-lg-none d-md-none" href="#" title="Search">
-						<i class="fas fa-search" data-toggle="modal" data-target="#main-search"></i>
-					</a>
+          		<div class="site-branding col-sm-auto">
+
+          			<?php if ($_logo !== '' ) { ?>
+          			
+          			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+          				<img src="<?php echo $_logo; ?>" alt="<?php bloginfo('name'); ?>" style="height:<?php echo $_logosize; ?>px; width: auto;"/>
+          			</a>
+
+          			<?php } else { ?>
+
+					<h1 class="site-title text-dark"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+          		
+          			<?php }; ?>
+				</div><!-- .site-branding -->
+
+				<a class="menu-search-button col-sm-2 d-xl-none d-lg-none d-md-none" href="#" title="Search">
+					<i class="fas fa-search" data-toggle="modal" data-target="#main-search"></i>
+				</a>
 				
 			</div>
 			<nav class="navbar navbar-expand-lg navbar-light mobileNav d-xl-none d-lg-none d-md-none">
-		    	
-				
 				<div id="navbarNav" class="collapse navbar-collapse navbarNavDropdown">
 					<?php
 						wp_nav_menu( array(
@@ -84,35 +100,22 @@
 		</div>
     </header><!-- Header Closed -->
 
-<!--     <div id="main-search" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-
-	  	<div class="form-group modal-dialog modal-lg main-search-form">
-	        <div class="input-group input-group-transparent">
-	            <div class="input-group-prepend">
-	                <span class="input-group-text"><i class="far fa-search"></i></span>
-	            </div>
-	            <input type="text" class="form-control" placeholder="Type and hit enter ...">
-	        </div>
-        </div>
-	</div> -->
-
-
 	<!-- Main Search Modal -->
 	<div class="modal fade main-search" id="main-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-body">
 	        <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url( '/' ); ?>" >
-				    <div class="search-form input-group input-group-transparent">
-				    	<div class="input-group-prepend">
-		          	<span class="input-group-text"><i class="fas fa-search"></i></span>
-		          </div>
-					    <input type="text" value="<?php the_search_query(); ?>" name="s" id="s" class="input-text" placeholder="Search..." />
-					    <div class="search-message">
-						    <p> Type above and press <em>Enter</em> to search. Press <em>Esc</em> to cancel.</p>
-							</div>
-				    </div>
-		    	</form>
+				<div class="search-form input-group input-group-transparent">
+					<div class="input-group-prepend">
+			          	<span class="input-group-text"><i class="fas fa-search"></i></span>
+			        </div>
+					<input type="text" value="<?php the_search_query(); ?>" name="s" id="s" class="input-text" placeholder="Search..." />
+					<div class="search-message">
+						<p> Type above and press <em>Enter</em> to search. Press <em>Esc</em> to cancel.</p>
+					</div>
+				</div>
+		    </form>
 	      </div>
 	    </div>
 	  </div>

@@ -39,7 +39,7 @@
                     <h1 class="title-big"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                     <span class="tagging line"><?php the_category(); ?></span>
                 
-                    <p><?php echo excerpt(20); ?></p>
+                    <?php the_excerpt(); ?>
 
                     <div class="post-author">
                         <div class="post-author-avatar">
@@ -52,15 +52,13 @@
                             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
                                 <?php echo nl2br(get_the_author_meta('display_name')); ?>
                             </a>
-                            
                             <br>
-                            <time class="entry-date" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
+                            <i class="far fa-clock"></i><time class="entry-date" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-7 featured-img col-sm-12 col-12">
                     <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-height-fixed', false, '' ); ?>
-
                     <img src="<?php echo esc_url($img[0]); ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>">
                 </div>
             </div>
@@ -71,9 +69,6 @@
 
     <?php else : ?>
 
-
-
-
     <!-- Slides Posts -->
     <div class="featured-post-slider slider">
         <div class="flexslider carousel">
@@ -81,7 +76,7 @@
                 <?php if ( have_posts() ) : 
                     $args = array(
                         'post_type' => 'post',
-                        'post_per_page' => $_slide_q,
+                        'posts_per_page' => $_slide_q,
                         'cat' => $_slide_cat,
                         'author' => $_slide_author,
                     );
@@ -95,7 +90,7 @@
                             <div class="content-text d-flex align-content-center flex-wrap col-md-5 col-sm-12 col-12">
                                 <h1 class="title-slide"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                                 <span class="tagging line"><?php the_category(); ?></span>
-                                <?php the_content(); ?>
+                                <?php the_excerpt(); ?>
                                 <div class="post-author">
                                     <div class="post-author-avatar">
                                         <?php  
@@ -109,13 +104,12 @@
                                         </a>
                                         
                                         <br>
-                                        <time class="entry-date" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
+                                        <i class="far fa-clock"></i><time class="entry-date" datetime="<?php the_time("M j, Y");?>"><?php the_time("M j, Y");?></time>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-7 col-sm-12 col-12">
                                 <?php $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium-height-fixed', false, '' ); ?>
-
                                 <img src="<?php echo esc_url($img[0]); ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>">
                             </div>
                         </div>

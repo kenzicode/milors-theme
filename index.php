@@ -82,7 +82,7 @@ $_categShow = $krocks_opt['_categShow'];
                                 </div>
                             	<?php endif; ?>
 
-		                    	<?php wpe_excerpt('wpe_excerptlength_index_sc', ''); ?>
+		                    	<?php echo excerpt(25); ?>
 
 		                    	<?php if ( $_postStyle !== '1' ) : ?>
 	                            <div class="post-author">
@@ -150,7 +150,7 @@ $_categShow = $krocks_opt['_categShow'];
 					if ( have_posts() ) :
                     while ( have_posts() ) : the_post();
 
-                    $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'small-height-fixed', false, '' );
+                    $img =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' );
                 ?>
 
                 <?php if ( $_homepageStyle_1_column !== '1' ) : ?>
@@ -179,7 +179,7 @@ $_categShow = $krocks_opt['_categShow'];
 	                            </div>
                             <?php endif; ?>
 
-                            <?php wpe_excerpt('wpe_excerptlength_index_sc', ''); ?>
+                            <?php echo excerpt(25); ?>
 
                             <?php if ( $_postStyle !== '1' ) : ?>
 	                            <div class="post-author">

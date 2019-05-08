@@ -190,8 +190,23 @@
                 'compiler' => 'true',
                 'desc'     => __( 'Logo uploader with URL input field.', 'redux-framework' ),
                 'subtitle' => __( 'Upload logo', 'redux-framework' ),
-                'default'  => array( 'url' => 'https://s.wordpress.org/style/images/codeispoetry.png' ),
+                'default'  => '',
+                'width' => '',
+                'height' => '',
             ),
+
+            array(
+                'id'            => '_logosize',
+                'type'          => 'slider',
+                'title'         => __( 'Set how many posts you want display on slider', 'redux-framework' ),
+                'subtitle'      => __( 'Set the number', 'redux-framework' ),
+                'default'       => 55,
+                'min'           => 55,
+                'step'          => 2,
+                'max'           => 100,
+                'display_value' => 'text',
+            ),
+        
         )
     ) );
 
@@ -230,7 +245,7 @@
                 'font-size' => false,
                 'text-align' => false,
                 'font-backup' => false,
-                'output'      => array('.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6'),
+                'output'      => array('.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .entry-title a, .widget_recent_entries a'),
                 'units'       =>'px',
                 'subtitle'    => __('Setting heading typography.', 'redux-framework'),
                 'default'     => array(
@@ -261,6 +276,33 @@
                     'google'      => true,
                 ),
             ),
+
+            array(
+                'id'       => '_linkcolor',
+                'type'     => 'color',
+                'title'    => __('Links Color Option', 'redux-framework-demo'), 
+                'subtitle' => __('Only color validation can be done on this field type', 'redux-framework-demo'),
+                'default'  => '#f25f5c',
+                'output'      => array(
+                    'a:hover, 
+                    .entry-title a:hover, 
+                    .post-category ul li a:hover, 
+                    .widgets ul li a:hover, 
+                    .featured-post-static .title-big a:hover, 
+                    .featured-post-static .tagging.line ul li a:hover, 
+                    .entry-content a, 
+                    .comments-area a, 
+                    .post-author-name a:hover,
+                    .next-post a:hover, 
+                    .prev-post a:hover,
+                    .widget a:hover,
+                    .nav li a:hover,
+                    h1.title-slide a:hover'
+                ),
+                'validate' => 'color',
+                'transparent' => false,
+            ),
+
 
 
             // array(
@@ -347,6 +389,17 @@
                 'desc'     => __( '', 'redux-framework' ),
                 'required' => array( '_featuredPost_type', '=', array( 'slides' ) )
             ),
+            array(
+                'id'       => '_featuredPostBgColor',
+                'type'     => 'color',
+                'title'    => __('Background Color Option', 'redux-framework'), 
+                'subtitle' => __('Only color validation can be done on this field type', 'redux-framework'),
+                'default'  => '#f0f0f0',
+                'output'      => array(
+                    'background-color' => '.featured-post-static'),
+                'validate' => 'color',
+                'transparent' => false,
+            ),
         )
     ) );
 
@@ -365,6 +418,7 @@
                     'recent_page'    => 'Recent Posts (default)',
                     'static_page'  => 'Static Page',
                 ),
+                'desc'   => __( 'If you select Static Page, you must add blocks at Drag and Drop section. And next, setting Your homepage displays become A static page (Settings > Reading)', 'redux-framework' ),
                 'default'  => 'recent_page',
                 'select2'  => array( 'allowClear' => false )
             ),
@@ -389,7 +443,7 @@
                     'col-lg-6' => '2 Column',
                     'col-lg-4' => '3 Column'
                 ),
-                'default' => '2',
+                'default' => '1',
                 'required' => array( '_homepageStyle_recentPost', '=', array( '1' )),
             ),
             array(
@@ -408,7 +462,7 @@
                 'type'     => 'select',
                 'title'    => __( 'Select block post style', 'redux-framework' ),
                 'options' => array (
-                    '1' => 'Casual',
+                    '1' => 'Classic',
                     '2' => 'Medium',
                 ),
                 'default' => '2',
@@ -418,7 +472,7 @@
                 'type'     => 'checkbox',
                 'title'    => __( 'Sidebar', 'redux-framework' ),
                 'subtitle' => __( 'Check to show sidebar', 'redux-framework' ),
-                'default'  => '0',// 1 = on | 0 = off
+                'default'  => '1',// 1 = on | 0 = off
                 'required' => array( '_homepageStyle', '=', array( 'recent_page' ))
             ),
             array(
@@ -426,7 +480,7 @@
                 'type'     => 'checkbox',
                 'title'    => __( 'Show category', 'redux-framework' ),
                 'subtitle' => __( 'Check to show category on post', 'redux-framework' ),
-                'default'  => '0'// 1 = on | 0 = off
+                'default'  => '1'// 1 = on | 0 = off
             ),
         )
     ) );
@@ -440,13 +494,13 @@
             array(
                 'id'       => '_blogtitleOne',
                 'type'     => 'text',
-                'title'    => __( 'Blog section sitle', 'redux-framework' ),
-                'desc'     => __( 'Add Blog title', 'redux-framework' ),
+                'title'    => __( 'Section title', 'redux-framework' ),
+                'desc'     => __( 'Blog title', 'redux-framework' ),
             ),
             array(
                 'id'       => '_blogcontentOne',
                 'type'     => 'select',
-                'multi'    => true,
+                'multi'    => false,
                 'title'    => __( 'Content', 'redux-framework' ),
                 'desc'     => __( 'Select category', 'redux-framework' ),
                 'data'     => 'categories',
@@ -454,16 +508,25 @@
             array(
                 'id'       => '_blogOnecolumn',
                 'type'     => 'select',
-                'title'    => __( 'Select column style', 'redux-framework' ),
+                'title'    => __( 'Select column', 'redux-framework' ),
                 'options' => array (
                     'col-lg-8' => '1 Column with sidebar',
                     'col-lg-6' => '2 Column',
                     'col-lg-4' => '3 Column',
-                    'col-lg-3' => '4 Column',
                 ),
                 'default' => 'col-lg-4',
             ),
-            
+            array(
+                'id'            => '_blogOnePostQty',
+                'type'          => 'slider',
+                'title'         => __( 'Set how many posts you want display on this section', 'redux-framework' ),
+                'subtitle'      => __( 'Set the number', 'redux-framework' ),
+                'default'       => 3,
+                'min'           => 3,
+                'step'          => 1,
+                'max'           => 10,
+                'display_value' => 'text',
+            ),
         )
     ) );
 
@@ -482,7 +545,7 @@
             array(
                 'id'       => '_blogcontentTwo',
                 'type'     => 'select',
-                'multi'    => true,
+                'multi'    => false,
                 'title'    => __( 'Content' ),
                 'desc'     => __( 'Select category', 'redux-framework' ),
                 'data'     => 'categories',
@@ -497,6 +560,17 @@
                     'col-lg-4' => '3 Column',
                 ),
                 'default' => 'col-lg-4',
+            ),
+            array(
+                'id'            => '_blogTwoPostQty',
+                'type'          => 'slider',
+                'title'         => __( 'Set how many posts you want display on this section', 'redux-framework' ),
+                'subtitle'      => __( 'Set the number', 'redux-framework' ),
+                'default'       => 3,
+                'min'           => 3,
+                'step'          => 1,
+                'max'           => 10,
+                'display_value' => 'text',
             ),
         )
     ) );
@@ -516,7 +590,6 @@
             array(
                 'id'       => '_blogcontentThree',
                 'type'     => 'select',
-                'multi'    => true,
                 'title'    => __( 'Content', 'redux-framework' ),
                 'desc'     => __( 'Select category', 'redux-framework' ),
                 'data'     => 'categories',
@@ -527,11 +600,21 @@
                 'title'    => __( 'Select column', 'redux-framework' ),
                 'desc'     => __( 'Select column', 'redux-framework' ),
                 'options' => array (
-                    'col-lg-12' => '1 Column',
                     'col-lg-6' => '2 Column',
                     'col-lg-8' => '1 Column with sidebar'
                 ),
                 'default' => '1',
+            ),
+            array(
+                'id'            => '_blogThreePostQty',
+                'type'          => 'slider',
+                'title'         => __( 'Set how many posts you want display on this section', 'redux-framework' ),
+                'subtitle'      => __( 'Set the number', 'redux-framework' ),
+                'default'       => 3,
+                'min'           => 3,
+                'step'          => 1,
+                'max'           => 10,
+                'display_value' => 'text',
             ),
         )
     ) );
@@ -640,6 +723,17 @@
                 'data'     => 'sidebars',
                 'default'  => '',
                 'required' => array( '_footerColumn', '=', array( 'col-lg-4' ) )
+            ),
+            array(
+                'id'       => '_footerBgColor',
+                'type'     => 'color',
+                'title'    => __('Background Color Option', 'redux-framework'), 
+                'subtitle' => __('Only color validation can be done on this field type', 'redux-framework'),
+                'default'  => '#f0f0f0',
+                'output'      => array(
+                    'background-color' => '.site-footer'),
+                'validate' => 'color',
+                'transparent' => false,
             ),
         )
     ) );

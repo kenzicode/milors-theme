@@ -50,7 +50,7 @@
 
 		        <?php endif; ?>
 
-		        <?php the_content(); ?>
+		        <?php the_excerpt(); ?>
 
 		        <?php if ($_postStyle !== '1') : ?>
 		            <div class="post-author">
@@ -108,7 +108,7 @@
 
 		        <?php endif; ?>
 
-		        <?php the_content(); ?>
+		        <?php the_excerpt(); ?>
 
 		        <?php if ($_postStyle !== '1') : ?>
 		            <div class="post-author">
